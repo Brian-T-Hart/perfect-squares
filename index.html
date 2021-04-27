@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Perfect Squares</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<div id="main-container">
+		<h1 class="title">Perfect Squares</h1>
+
+		<div class="message-container text-center" id="message-container">
+			<p class="message" id="review">
+				<i>Use the table to review. Then, click the quiz button to test your knowledge.</i>
+			</p>
+
+			<p class="message hidden" id="instructions">
+				<i>Fill in the boxes and click the submit button to check your answers.</i>
+			</p>
+
+			<h2 class="message" id="score"></h2>
+
+			<p class="hidden message" id="timer-container"><span id="timer"></span></p>
+		</div>
+		<div></div>
+
+		<div class="flex-container">
+			<div class="row-headers" id="row-headers">
+			</div>
+
+			<div class="boxes flex-container" id="boxes"></div>
+		</div>
+
+		<button class="button" id="quiz-button" onclick="startQuiz()">Quiz</button>
+		<button class="button hidden" id="submit-button" onclick="submit()">Submit</button>
+		<button class="button hidden" id="reset-button" onclick="reset()">Reset</button>
+	</div>
+
+<script src="index.js"></script>
+</body>
+</html>
