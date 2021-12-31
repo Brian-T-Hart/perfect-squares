@@ -15,6 +15,8 @@ var timer = document.getElementById('timer');
 
 
 function createBoxes(min, max) {
+	boxes.innerHTML = '';
+	rowHeaders.innerHTML = '';
     createRowHeaders(min, max);
     for (let i = min; i <= max; i++) {
         var box = document.createElement('INPUT');
@@ -59,10 +61,14 @@ function handleBlur(e) {
 	var col = e.target.id.split('x')[1];
 
 	var rowHeader = document.getElementById('row-header-' + row);
-	rowHeader.classList.remove('highlight');
+	if (rowHeader) {
+		rowHeader.classList.remove('highlight');
+	}
 
 	var colHeader = document.getElementById('col-header-' + col);
-	colHeader.classList.remove('highlight');
+	if (colHeader) {
+		colHeader.classList.remove('highlight');
+	}
 }
 
 function handleFocus(e) {
@@ -70,10 +76,28 @@ function handleFocus(e) {
 	var col = e.target.id.split('x')[1];
 
 	var rowHeader = document.getElementById('row-header-' + row);
-	rowHeader.classList.add('highlight');
-
+	if (rowHeader) {
+		rowHeader.classList.add('highlight');
+	}
+	
 	var colHeader = document.getElementById('col-header-' + col);
-	colHeader.classList.add('highlight');
+	if (colHeader) {
+		colHeader.classList.add('highlight');
+	}
+}
+
+function handleSelection(min, max, selection) {
+	let selections = document.querySelectorAll('.selection');
+
+	for (let i = 0; i < selections.length; i++) {
+		if (selections[i].id === `selection-${selection}`) {
+			selections[i].classList.add('active');
+		} else {
+			selections[i].classList.remove('active');
+		}
+	}
+
+	createBoxes(min,max);
 }
 
 
@@ -162,4 +186,4 @@ function stopClock() {
 	clearInterval(clock);
 }
 
-createBoxes(1,12);
+createBoxes(1,10);

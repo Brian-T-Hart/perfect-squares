@@ -10,6 +10,12 @@
 	<div id="main-container">
 		<h1 class="title">Perfect Squares</h1>
 
+		<div id="selections">
+			<button class="button selection active" id="selection-1" onclick="handleSelection(1,10,1)">1 - 10</button>
+			<button class="button selection" id="selection-2" onclick="handleSelection(11,20,2)">11 - 20</button>
+			<button class="button selection" id="selection-3" onclick="handleSelection(21,30,3)">21 - 30</button>
+		</div>
+
 		<div class="message-container text-center" id="message-container">
 			<p class="message" id="review">
 				<i>Use the table to review. Then, click the quiz button to test your knowledge.</i>
